@@ -34,6 +34,13 @@ double maxoffdiag(mat A,int *k,int *l,int n){
  * Roterer matrisen slik at ikke diagonale elementer tvinges til å bli null
  * */
 mat rotate(mat A, mat R, int k, int l, int n){
+    double epsilon = 1E-8; //Toleranse
+    int iteration = 0;
+    int max_iter = n*n*n; //Max antall iterasjoner
+    double max_offdiag = maxoffdiag(A,&k,&l,n);
+    while(fabs(max_offdiag) > epsilon && iteration <= max_iter){
+         max_offdiag = maxoffdiag(A,&k,&l,n);
+
     double s,c;
     if(A(k,l) != 0.0){
         double t,tau;
@@ -78,6 +85,10 @@ mat rotate(mat A, mat R, int k, int l, int n){
         R(i,k) = c*r_ik - s*r_il;
         R(i,l) = c*r_il + s*r_ik;
     }
+
+             iteration++;
+      }
+
     return A;
 }
 
@@ -96,4 +107,3 @@ void eigen(mat A, mat R, int n){
         }
     }
 }
-
