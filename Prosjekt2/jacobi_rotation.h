@@ -33,7 +33,9 @@ double maxoffdiag(mat A,int *k,int *l,int n){
 /*rotate:
  * Roterer matrisen slik at ikke diagonale elementer tvinges til å bli null
  * */
-mat rotate(mat A, mat R, int k, int l, int n){
+mat rotate(mat A, int n){
+    int k, l;
+    mat R(n,n);
     double epsilon = 1E-8; //Toleranse
     int iteration = 0;
     int max_iter = n*n*n; //Max antall iterasjoner
