@@ -39,6 +39,7 @@ void test_maxoffdiag(){
         };
     };
     A(1,3) = 3;
+    A(4,4) = 5;
     A(3,1) = 3;
     int k, l;
     int max = maxoffdiag(A,&k,&l,n);
@@ -51,7 +52,7 @@ void test_maxoffdiag(){
         catch (const char* msg){
             cerr << msg <<endl;
         }
-    //cout << A << endl;
+    cout << A << endl;
     //cout << max << endl;
 }
 void test_syntac(){
