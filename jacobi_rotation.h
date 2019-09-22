@@ -23,6 +23,10 @@ double maxoffdiag(mat A,int *k,int *l,int n){
                if(a>max){
                    max = a; *l=i; *k = j;
                }
+               double b = fabs(A(j,i));
+               if(b>max){
+                   max = b; *l=j; *k = i;
+               }
            }
        }
        return max;
