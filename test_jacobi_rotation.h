@@ -43,6 +43,7 @@ void test_maxoffdiag(){
     A(2,0) = 6;
 =======
     A(1,3) = 3;
+    A(4,4) = 5;
     A(3,1) = 3;
 >>>>>>> 2b5827275042a8e406c7e5d55d2194aaa2ce9e6e
     int k, l;
