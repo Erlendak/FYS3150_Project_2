@@ -35,8 +35,8 @@ void test_solution(){
 void test_maxoffdiag(){
     int n = 5;
     mat A(n,n);
-    for(int i; i<n; i++){
-        for(int j; i<n; i++){
+    for(int i= 0; i<n; i++){
+        for(int j=0; j<n; j++){
                 A(i,j) = 1;
         };
     };
@@ -44,5 +44,6 @@ void test_maxoffdiag(){
     A(2,0) = 3;
     int k, l;
     int max = maxoffdiag(A,&k,&l,n);
+    cout << A << endl;
     cout << max << endl;
 };
