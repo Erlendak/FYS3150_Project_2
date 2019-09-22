@@ -39,7 +39,7 @@ void test_maxoffdiag(){
         };
     };
     A(1,3) = 3;
-    A(3,1) = 4;
+    A(3,1) = 3;
     int k, l;
     int max = maxoffdiag(A,&k,&l,n);
     try{
