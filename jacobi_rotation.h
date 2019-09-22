@@ -38,7 +38,7 @@ double maxoffdiag(mat A,int *k,int *l,int n){
 mat rotate(mat A, int n){
     int k, l;
     mat R(n,n);
-    double epsilon = 1E-8; //Toleranse
+    double epsilon = 1E-18; //Toleranse
     int iteration = 0;
     int max_iter = n*n*n; //Max antall iterasjoner
     double max_offdiag = maxoffdiag(A,&k,&l,n);
