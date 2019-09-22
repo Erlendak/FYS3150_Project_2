@@ -1,8 +1,6 @@
 #ifndef JACOBI_ROTATION_H
 #define JACOBI_ROTATION_H
 
-#endif // JACOBI_ROTATION_H
-
 #include <iostream>
 #include <cmath>
 #include <fstream>
@@ -109,3 +107,5 @@ void eigen(mat A, mat R, int n){
         }
     }
 }
+
+#endif // JACOBI_ROTATION_H

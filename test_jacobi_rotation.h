@@ -1,13 +1,12 @@
 #ifndef TEST_JACOBI_ROTATION_H
 #define TEST_JACOBI_ROTATION_H
 
-#endif // TEST_JACOBI_ROTATION_H
 
+#include "jacobi_rotation.h"
 
 void test_solution(){
     int n = 3; //Dimensjon på matrisene
     mat A(n,n);
-
 
     //Lager en matrise
     A(0,0) = 1;
@@ -47,3 +46,6 @@ void test_maxoffdiag(){
     cout << A << endl;
     cout << max << endl;
 };
+
+
+#endif // TEST_JACOBI_ROTATION_H
