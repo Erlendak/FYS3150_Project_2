@@ -106,9 +106,9 @@ vec diagelement(mat A, int n){
         }
     double tmp;
     for(int j =0; j<n; j++){
-        double min = 0;
+        double min = eigen(j);
         int k = j ;
-        for(int i=j; i<n; i++){
+        for(int i=j+1; i<n; i++){
 
             if(abs(eigen(i)) < min){
                 min = eigen(i);
