@@ -35,7 +35,7 @@ double maxoffdiag(mat A,int *k,int *l,int n){
 /*rotate:
  * Roterer matrisen slik at ikke diagonale elementer tvinges til å bli null
  * */
-mat rotate(mat A, int n){
+void rotate(mat & A , int n){
     int k, l;
     mat R(n,n);
     double epsilon = 1E-18; //Toleranse
@@ -93,7 +93,7 @@ mat rotate(mat A, int n){
              iteration++;
       }
 
-    return A;
+   // return A;
 }
 
 

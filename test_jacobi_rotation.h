@@ -16,7 +16,7 @@ void test_solution(){
     A(2,1) = 7;
     A(2,2) = 5;
 
-    A = rotate(A,n);
+    rotate(A,n);
     double tol = 1E-4;
     double x = abs(abs(10.90582184)-abs(A(2,2))) + abs(abs(1.08097442) - abs(A(0,0))) + abs(abs(-3.98679626) - abs(A(1,1)));
     try{
