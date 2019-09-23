@@ -1,8 +1,10 @@
 #include "test_jacobi_rotation.h"
 #include "jacobi_rotation.h"
+#include "quantum_dots.h"
 
 int main(){
 tests();
+<<<<<<< HEAD
 double N = 200;
 double rho_0 = 0;
 double rho_n = 1;
@@ -49,6 +51,9 @@ cout << B << endl;
 rotate(B,N);
 cout << B << endl;
 //cout << rho << endl;
+=======
+task_2d();
+>>>>>>> 2cbc6673a60dfaea4e363fb1c032634b2a815338
 
 
 
