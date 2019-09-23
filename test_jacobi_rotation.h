@@ -54,7 +54,7 @@ void test_maxoffdiag(){
         catch (const char* msg){
             cerr << msg <<endl;
         }
-    cout << A << endl;
+    //cout << A << endl;
     //cout << max << endl;
 }
 void test_syntac(){

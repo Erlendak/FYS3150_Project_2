@@ -93,7 +93,6 @@ void rotate(mat & A , int n){
              iteration++;
       }
 
-   // return A;
 }
 
 
