@@ -17,4 +17,5 @@ LIBS += \
 
 HEADERS += \
     jacobi_rotation.h \
-    test_jacobi_rotation.h
+    test_jacobi_rotation.h\
+    quantum_dots.h
