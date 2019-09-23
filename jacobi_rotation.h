@@ -100,12 +100,28 @@ void rotate(mat & A , int n){
  * Lager en matrise som inneholder egenverdiene
  */
 vec diagelement(mat A, int n){
-    vec vector(n);
+    vec eigen(n);
     for(int i=0; i<n; i++){
-          vector(i) = A(i,i);
+          eigen(i) = A(i,i);
         }
+    double tmp;
+    for(int j =0; j<n; j++){
+        double min = 0;
+        int k = j ;
+        for(int i=j; i<n; i++){
 
-    return vector;
+            if(abs(eigen(i)) < min){
+                min = eigen(i);
+                k = i;
+            }
+        }
+        tmp = eigen(j);
+
+        eigen(j) = min;
+        eigen(k) = tmp;
 }
+
+    return eigen;
+};
 
 #endif // JACOBI_ROTATION_H
