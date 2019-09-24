@@ -5,8 +5,8 @@
 int main(){
 tests();
 
-//task_2d();
-task_2b();
+task_2d();
+//task_2b();
 
 
 return 0;

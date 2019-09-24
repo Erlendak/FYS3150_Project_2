@@ -43,21 +43,15 @@ void task_2b(){
 
 //Kode for å løse oppgave 2d.
 void task_2d(){
-double n = 5;
+double n = 400;
 double rho_0 = 0;
 double rho_n = 1000;
 double h  = (rho_n - rho_0)/(n);
-double analytisk;
 
 vec rho(n);
 for (int i = 0; i < n; ++i) {
     rho[i] = rho_0 + (i+1)*h;
 }
-
-for(int j = 1; j<n+1;j++){
-          analytisk = ((2/(h*h))+(rho[j]+rho[j]))+ 2*(-1/(h*h))*(cos((j*M_PI)/(n+1)));
-          cout << analytisk << endl;
-         };
 
 mat B(n,n);
 for(int i= 0; i<n; i++){
