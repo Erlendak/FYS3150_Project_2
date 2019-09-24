@@ -72,4 +72,38 @@ for(int j = 1; j<n;j++){
 rotate(B,n);
 cout << diagelement(B, n) << endl; //Printer ut alle diagonalelementene
 }
+
+void task_2e(double omega){
+    double n = 100;
+    double rho_0 = 0;
+    double rho_n = 10;
+    double h  = (rho_n - rho_0)/(n);
+
+    vec rho(n);
+    for (int i = 0; i < n; ++i) {
+        rho[i] = rho_0 + (i+1)*h;
+    }
+
+    mat B(n,n);
+
+    for(int i= 0; i<n; i++){
+        for(int j=0; j<n; j++){
+                B(i,j) = 0;
+        }
+    }
+
+    for(int i = 0; i<n;i++){
+               B(i,i) = (2/(h*h))+( (omega*omega)*(rho[i]*rho[i]))+(1/rho[i]);  // + (rho[i]*rho[i])
+       };
+
+    for(int j = 1; j<n;j++){
+               B(j-1,j) = -1/ (h*h);
+               B(j,j-1) = -1/(h*h);
+
+       };
+
+    rotate(B,n);
+    cout << diagelement(B, n) << endl; //Printer ut alle diagonalelementene
+}
+
 #endif // QUANTUM_DOTS_H
