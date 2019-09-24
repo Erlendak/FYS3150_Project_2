@@ -43,9 +43,9 @@ void task_2b(){
 
 //Kode for å løse oppgave 2d.
 void task_2d(){
-double n = 400;
+double n = 200;
 double rho_0 = 0;
-double rho_n = 1000;
+double rho_n = 10;
 double h  = (rho_n - rho_0)/(n);
 
 vec rho(n);

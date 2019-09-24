@@ -12,6 +12,14 @@
 using namespace arma;
 using namespace std;
 
+void progressbar(int n, int j){
+    cout.flush();
+
+    cout << j << " %\r";
+    //cout<< j<<;
+};
+
+
 /*maxoffdiag:
  * Funksjon for å finne det største
  * ikke diagonale matriseelementet.*/
@@ -29,9 +37,9 @@ double maxoffdiag(mat A,int *k,int *l,int n){
                }
            }
        }
-       return max;
 
-}
+       return max;
+};
 
 /*rotate:
  * Roterer matrisen slik at ikke diagonale elementer tvinges til å bli null
@@ -43,7 +51,12 @@ void rotate(mat & A , int n){
     int iteration = 0;
     int max_iter = n*n*n; //Max antall iterasjoner
     double max_offdiag = maxoffdiag(A,&k,&l,n);
+
     while(fabs(max_offdiag) > epsilon && iteration <= max_iter){
+        double progress = double(iteration)/double(max_iter);
+        cout.flush();
+        cout << progress*100 << " %\r";
+
          max_offdiag = maxoffdiag(A,&k,&l,n);
 
     double s,c;
@@ -93,6 +106,7 @@ void rotate(mat & A , int n){
 
              iteration++;
       }
+cout<<"\n"<<endl;
 
 }
 
