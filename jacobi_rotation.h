@@ -12,13 +12,6 @@
 using namespace arma;
 using namespace std;
 
-void progressbar(int n, int j){
-    cout.flush();
-
-    cout << j << " %\r";
-    //cout<< j<<;
-};
-
 
 /*maxoffdiag:
  * Funksjon for å finne det største
