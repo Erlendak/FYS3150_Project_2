@@ -12,10 +12,9 @@
 using namespace arma;
 using namespace std;
 
-
 /*maxoffdiag:
- * Funksjon for å finne det største
- * ikke diagonale matriseelementet.*/
+ * Function to find the absolute max non-diagonal element
+    of the matrix.*/
 double maxoffdiag(mat A,int *k,int *l,int n){
        double max;
        for(int i = 0; i<n; i++){
@@ -30,29 +29,34 @@ double maxoffdiag(mat A,int *k,int *l,int n){
                }
            }
        }
-
        return max;
 };
 
 /*rotate:
- * Roterer matrisen slik at ikke diagonale elementer tvinges til å bli null
+ * Rotates the matrix so that the non-diagonal elements are forced to become zero.
+ * After enough iterations vi should be left with a diagonal matrix with the
+ * eigenvalues on the diagonal.
  * */
 void rotate(mat & A , int n){
     int k, l;
     mat R(n,n);
-    double epsilon = 1E-8; //Toleranse
+    double epsilon = 1E-8; //Tolerance
     int iteration = 0;
-    int max_iter = n*n*n; //Max antall iterasjoner
+    int max_iter = n*n*n; //Max number of iteration.
     double max_offdiag = maxoffdiag(A,&k,&l,n);
 
+    //We keep iterating until all non-diag elements are either
+    // zero or until we hit the max number of iterations we have set.
     while(fabs(max_offdiag) > epsilon && iteration <= max_iter){
-        double progress = double(iteration)/double(max_iter);
-        cout.flush();
-        cout << progress*100 << " %\r";
-
+        //double progress = double(iteration)/double(max_iter);
+        //cout.flush();
+        //cout << progress*100 << " %\r";
          max_offdiag = maxoffdiag(A,&k,&l,n);
 
     double s,c;
+    /*If our non-diagonal element is already zero we don't want to waste
+     * memory rotating our matrix. Therefor we make an if statement to check if
+       the non-diag element is zero.*/
     if(A(k,l) != 0.0){
         double t,tau;
         tau = (A(l,l) - A(k,k))/(2*A(k,l));
@@ -71,6 +75,7 @@ void rotate(mat & A , int n){
     }
 
 
+    //This is where the diagonalization happens
     double a_kk, a_ll, a_ik, a_il, r_ik, r_il;
     a_kk = A(k,k);
     a_ll = A(l,l);
@@ -99,14 +104,15 @@ void rotate(mat & A , int n){
 
              iteration++;
       }
-cout<<"\n"<<endl;
+cout<<iteration<<endl;
 
 }
 
 
-/*eigen:
- * Lager en matrise som inneholder egenverdiene
- */
+/*diagelement:
+ * Takes the diagonal elements of the rotated matrix and prints them out.
+ * This is so we can just look at the important elements instead of
+ * having a matrix full of zeroes and only diagonal elements.*/
 vec diagelement(mat A, int n){
     vec eigen(n);
     for(int i=0; i<n; i++){
@@ -131,5 +137,33 @@ vec diagelement(mat A, int n){
 
     return eigen;
 };
+
+
+/*
+vec diagelement(mat A, int n, int k){
+    vec eigen(n);
+    for(int i=0; i<n; i++){
+          eigen(i) = A(i,i);
+        }
+    double tmp;
+    for(int j =0; j<n; j++){
+        double min = eigen(j);
+        int k = j ;
+        for(int i=j+1; i<n; i++){
+
+            if(abs(eigen(i)) < min){
+                min = eigen(i);
+                k = i;
+            }
+        }
+        tmp = eigen(j);
+
+        eigen(j) = min;
+        eigen(k) = tmp;
+}
+
+    return eigen;
+};*/
+
 
 #endif // JACOBI_ROTATION_H
