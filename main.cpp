@@ -3,12 +3,12 @@
 #include "quantum_dots.h"
 
 int main(){
-tests();
+//tests();
 
-//task_2d();
+task_2d();
 //task_2b();
-task_2e(0.01);
-task_2e(0.5);
-task_2e(5);
+//task_2e(0.01);
+//task_2e(0.5);
+//task_2e(5);
 return 0;
 }

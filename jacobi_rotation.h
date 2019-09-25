@@ -107,7 +107,7 @@ void rotate(mat & A , int n){
 
              iteration++;
       }
-cout<<iteration<<endl;
+    cout<<iteration<<endl;
 
 }
 

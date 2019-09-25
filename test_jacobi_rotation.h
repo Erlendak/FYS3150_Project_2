@@ -4,7 +4,12 @@
 #include "jacobi_rotation.h"
 
 void test_solution(){
-    int n = 3; //Dimensjon på matrisene
+    /*test_solution:
+    *Function to test that we get the right diagonal elements
+     out of a symmetric matrix after we have rotated it. We have
+     found the eigenvalues analytically and compare them to the numerical ones*/
+
+    int n = 3;
     mat A(n,n);
     A(0,0) = 1;
     A(0,1) = 0;
@@ -21,7 +26,7 @@ void test_solution(){
     double x = abs(abs(10.90582184)-abs(A(2,2))) + abs(abs(1.08097442) - abs(A(0,0))) + abs(abs(-3.98679626) - abs(A(1,1)));
     try{
         if (x > tol){
-        throw "Warning the rotation mehtod is not as accurat as expected, there may be a serius error.";
+        throw "Warning: The Jacobi rotation method is not accurate and is not giving excpected values, there may be a serious problem";
     }
     }
         catch (const char* msg){
@@ -31,13 +36,16 @@ void test_solution(){
 
 
 void test_maxoffdiag(){
+    /*test_maxoffdiag:
+    Function to test if the max_offdiag function actually
+    gives the maximum non-diagonal element.*/
     int n = 5;
     mat A(n,n);
     for(int i= 0; i<n; i++){
         for(int j=0; j<n; j++){
                 A(i,j) = 1;
-        };
-    };
+        }
+    }
 
     A(1,3) = 3;
     A(4,4) = 5;
@@ -47,23 +55,28 @@ void test_maxoffdiag(){
     int max = maxoffdiag(A,&k,&l,n);
     try{
         if (max != 3){
-        throw "Warning critical error, the maxoffdiag() function does not work properly"
-            "\nIt did not find the largest number.";
+        throw "Warning, critical error: The maxoffdiag() function does not work properly"
+            "\nIt did not find the max non-diagonal number.";
     }
     }
         catch (const char* msg){
             cerr << msg <<endl;
         }
-    //cout << A << endl;
-    //cout << max << endl;
 }
+
 void test_syntac(){
 //teste forskjellige n i forhold til matrise A's n. For eksempel negativ n.
 //usymetrisk matrise.
 //teste matriser under 3.
 
 }
+
 void tests(){
+    /*A function where we have all
+    of the tests. Instead of running each
+    individual test we can just run this and everything
+    will be tested.*/
+
     test_solution();
     test_maxoffdiag();
 };
