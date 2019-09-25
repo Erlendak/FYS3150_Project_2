@@ -12,10 +12,11 @@
 using namespace arma;
 using namespace std;
 
-/*maxoffdiag:
- * Function to find the absolute max non-diagonal element
-    of the matrix.*/
 double maxoffdiag(mat A,int *k,int *l,int n){
+    /*maxoffdiag:
+     * Function to find the absolute max non-diagonal element
+        of the matrix.*/
+
        double max;
        for(int i = 0; i<n; i++){
            for(int j= i+1; j<n; j++){
@@ -32,12 +33,14 @@ double maxoffdiag(mat A,int *k,int *l,int n){
        return max;
 };
 
-/*rotate:
- * Rotates the matrix so that the non-diagonal elements are forced to become zero.
- * After enough iterations vi should be left with a diagonal matrix with the
- * eigenvalues on the diagonal.
- * */
+
 void rotate(mat & A , int n){
+    /*rotate:
+     * Rotates the matrix so that the non-diagonal elements are forced to become zero.
+     * After enough iterations vi should be left with a diagonal matrix with the
+     * eigenvalues on the diagonal.
+     * */
+
     int k, l;
     mat R(n,n);
     double epsilon = 1E-8; //Tolerance
@@ -109,11 +112,12 @@ cout<<iteration<<endl;
 }
 
 
-/*diagelement:
- * Takes the diagonal elements of the rotated matrix and prints them out.
- * This is so we can just look at the important elements instead of
- * having a matrix full of zeroes and only diagonal elements.*/
 vec diagelement(mat A, int n){
+    /*diagelement:
+     * Takes the diagonal elements of the rotated matrix and prints them out.
+     * This is so we can just look at the important elements instead of
+     * having a matrix full of zeroes and only diagonal elements.*/
+
     vec eigen(n);
     for(int i=0; i<n; i++){
           eigen(i) = A(i,i);
