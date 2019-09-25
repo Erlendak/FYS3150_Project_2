@@ -3,12 +3,11 @@
 #include "jacobi_rotation.h"
 
 
-void task_2b(){
+vec task_2b(int n){
     /*Code to solve task 2b.
     We define a tridiagonal matrix and let our rotate
     function solve it.*/
 
-    double n = 100;
     double rho_0 = 0;
     double rho_n = 1;
     double h  = (rho_n - rho_0)/(n);
@@ -47,16 +46,15 @@ void task_2b(){
        };
 
     rotate(B,n);
-   cout << B << endl;
+    return B;
 }
 
-void task_2d(){
+vec task_2d(int n){
     /*Code to solve task 2d.
     We do almost the same as in 2d, the point is to try to approximate rho_n = infinity.
     We also add rho^2 to our diagonal elements.
     */
 
-    double n = 200;
     double rho_0 = 0;
     double rho_n = 10;
     double h  = (rho_n - rho_0)/(n);
@@ -92,16 +90,16 @@ void task_2d(){
    }
 
     rotate(B,n);
-    //cout << diagelement(B, n) << endl;
+    return diagelement(B, n);
 }
 
 
-void task_2e(double omega){
+void task_2e(double omega, int n){
    /*Code to solve task 2e.
     We do almost the same as in 2d and 2b
-    but we add omega^2*rho^2+(1/rho) to the diagonal elements.*/
+    but we add omega^2*rho^2+(1/rho) to the diagonal elements.
+    We make it a function of omega so we can test for different omega values.*/
 
-    double n = 100;
     double rho_0 = 0;
     double rho_n = 10;
     double h  = (rho_n - rho_0)/(n);
