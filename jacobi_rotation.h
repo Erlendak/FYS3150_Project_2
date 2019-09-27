@@ -12,10 +12,13 @@
 using namespace arma;
 using namespace std;
 
+
+
 double maxoffdiag(mat A,int *k,int *l,int n){
     /*maxoffdiag:
      * Function to find the absolute max non-diagonal element
         of the matrix.*/
+
 
        double max;
        for(int i = 0; i<n; i++){
@@ -27,6 +30,7 @@ double maxoffdiag(mat A,int *k,int *l,int n){
                double b = fabs(A(j,i));
                if(b>max){
                    max = b; *l=j; *k = i;
+
                }
            }
        }
@@ -40,7 +44,7 @@ void rotate(mat & A , int n){
      * After enough iterations vi should be left with a diagonal matrix with the
      * eigenvalues on the diagonal.
      * */
-
+    clock_t start, finish;
     int k, l;
     mat R(n,n);
     double epsilon = 1E-8; //Tolerance
@@ -48,6 +52,7 @@ void rotate(mat & A , int n){
     int max_iter = n*n*n; //Max number of iteration.
     double max_offdiag = maxoffdiag(A,&k,&l,n);
 
+    start = clock();
     //We keep iterating until all non-diag elements are either
     // zero or until we hit the max number of iterations we have set.
     while(fabs(max_offdiag) > epsilon && iteration <= max_iter){
@@ -107,8 +112,10 @@ void rotate(mat & A , int n){
 
              iteration++;
       }
-    cout<<iteration<<endl;
-
+    //printf("Iterations to diagonalize: %s",iteration);
+    cout << iteration << endl;
+    finish = clock();
+    cout << ((((double)finish - (double)start)/CLOCKS_PER_SEC)) << endl;
 }
 
 
