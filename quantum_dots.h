@@ -16,7 +16,7 @@ vec task_2b(int n){
     //This gives us the analytical eigenvalues in 2b.
     for(int j = 1; j<n+1;j++){
               analytisk = (2/(h*h))+ 2*(-1/(h*h))*(cos((j*M_PI)/(n+1)));
-              cout << analytisk << endl;
+              //cout << analytisk << endl;
              };
 
     vec rho(n);
@@ -71,7 +71,7 @@ vec task_2d(int n){
     // We know the eigenvalues are 3,7,11,15,...
     for(int i = 0; i<n; i++){
         analytisk = 3 + i*4;
-        cout << analytisk << endl;
+        //cout << analytisk << endl;
     }
 
     for(int i= 0; i<n; i++){

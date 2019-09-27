@@ -29,7 +29,7 @@ int main(int argc, char *argv[]){
           ofile.close();
 
 
-//tests();
+//test_rotate();
 
 //task_2b();
 //task_2e(0.01);

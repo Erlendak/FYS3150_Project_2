@@ -66,7 +66,6 @@ void test_rotate(){
 };
 
 
-
 void test_maxoffdiag(){
     /*test_maxoffdiag:
     Function to test if the max_offdiag function actually
