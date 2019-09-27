@@ -34,6 +34,38 @@ void test_solution(){
         }
 };
 
+void test_rotate(){
+    /*test_solution:
+    *Function to test that the Jacobi rotation
+     preserves the eigenvalues. The eigenvalues before
+     and after the transform should be the same.*/
+
+    int n = 3;
+    mat A(n,n);
+    A(0,0) = 3;
+    A(0,1) = 0;
+    A(0,2) = -7;
+    A(1,0) = 0;
+    A(1,1) = 2;
+    A(1,2) = 5;
+    A(2,0) = -7;
+    A(2,1) = 5;
+    A(2,2) = 5;
+
+    rotate(A,n);
+    double tol = 1E-4;
+    double x = abs(abs(eig_sym(A)[0])-abs(A(0,0))) + abs(abs(eig_sym(A)[1]) - abs(A(1,1))) + abs(abs(eig_sym(A)[2]) - abs(A(2,2)));
+    try{
+        if (x > tol){
+        throw "Warning: The Jacobi rotation method does not preserve the eigenvalues. Eigenvalues before and after rotate are not the same, something is wrong.";
+    }
+    }
+        catch (const char* msg){
+            cerr << msg <<endl;
+        }
+};
+
+
 
 void test_maxoffdiag(){
     /*test_maxoffdiag:
@@ -76,9 +108,9 @@ void tests(){
     of the tests. Instead of running each
     individual test we can just run this and everything
     will be tested.*/
-
     test_solution();
     test_maxoffdiag();
+    test_rotate();
 };
 #endif // TEST_JACOBI_ROTATION_H
 
