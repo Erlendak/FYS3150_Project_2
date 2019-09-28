@@ -52,6 +52,18 @@ void rotate(mat & A, int n){
     int max_iter = n*n*n; //Max number of iteration.
     double max_offdiag = maxoffdiag(A,&k,&l,n);
 
+    //Setting up matrix R
+    for(int i = 0; i<n; i++){
+      for(int j = 0; j<n; j++){
+          if(i==j){
+              R(i,j) = 1.0;
+          }else{
+              R(i,j) = 0;
+          }
+      }
+    }
+
+
     start = clock();
     //We keep iterating until all non-diag elements are either
     // zero or until we hit the max number of iterations we have set.
@@ -116,11 +128,12 @@ void rotate(mat & A, int n){
     cout <<"Number of iterations:" <<iteration << endl;
     finish = clock();
     cout << "Algorithm time:" <<((((double)finish - (double)start)/CLOCKS_PER_SEC)) << endl;
+    //cout << R << endl;
 }
 
 
-vec diagelement(mat A, int n){
-    /*diagelement:
+vec sort_diag(mat A, int n){
+    /*sort:
      * Takes the diagonal elements of the rotated matrix and prints them out.
      * This is so we can just look at the important elements instead of
      * having a matrix full of zeroes and only diagonal elements.*/
@@ -150,31 +163,14 @@ vec diagelement(mat A, int n){
 };
 
 
-/*
-vec diagelement(mat A, int n, int k){
+
+vec diagelement(mat A, int n){
     vec eigen(n);
     for(int i=0; i<n; i++){
           eigen(i) = A(i,i);
         }
-    double tmp;
-    for(int j =0; j<n; j++){
-        double min = eigen(j);
-        int k = j ;
-        for(int i=j+1; i<n; i++){
-
-            if(abs(eigen(i)) < min){
-                min = eigen(i);
-                k = i;
-            }
-        }
-        tmp = eigen(j);
-
-        eigen(j) = min;
-        eigen(k) = tmp;
-}
-
     return eigen;
-};*/
+};
 
 
 #endif // JACOBI_ROTATION_H
