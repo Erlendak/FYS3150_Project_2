@@ -46,11 +46,11 @@ void task_2b(int n){
                B(j-1,j) = -1/ (h*h);
                B(j,j-1) = -1/(h*h);
 
-       };
+       }
 
 
     mat x = rotate(B,n);
-    cout << x << endl;
+    sort_eigenvec(B,x,n);
     string filename = "2b.dat";
     string fileout = filename;
     ofile.open(fileout);
