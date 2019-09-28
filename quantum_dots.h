@@ -104,7 +104,7 @@ void task_2d(int n){
 
     mat x = rotate(B,n);
     //cout << sort_diag(B,n) << endl;
-
+    sort_eigenvec(B,x,n);
     string filename = "2d.dat";
     string fileout = filename;
     ofile.open(fileout);
@@ -150,16 +150,17 @@ void task_2e(double omega, int n){
 
        }
 
-    rotate(B,n);
+    mat x = rotate(B,n);
+    //cout << sort_diag(B,n) << endl;
+    sort_eigenvec(B,x,n);
     string filename = "2e.dat";
     string fileout = filename;
     ofile.open(fileout);
     ofile << setiosflags(ios::showpoint | ios::uppercase);
       //      ofile << "       x:             approx:          exact:       relative error" << endl;
-         ofile << setw(15) << setprecision(8) << diagelement(B,n);
+         ofile << setw(15) << setprecision(8) << x;
 
       ofile.close();
-    //return diagelement(B, n);
 }
 
 #endif // QUANTUM_DOTS_H
