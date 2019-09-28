@@ -163,6 +163,39 @@ vec sort_diag(mat A, int n){
 };
 
 
+vec sort_eigenvec(mat A, mat R, int n){
+    /*sort:
+     * Takes the diagonal elements of the rotated matrix and prints them out.
+     * This is so we can just look at the important elements instead of
+     * having a matrix full of zeroes and only diagonal elements.*/
+
+    vec eigen_val(n);
+    eigen_vec(n);
+    for(int i=0; i<n; i++){
+          eigen_val(i) = A(i,i);
+        }
+
+
+    mat tmp_vec(n,1);
+    double tmp;
+    for(int j =0; j<n; j++){
+        double min = eigen_val(j);
+        int k = j ;
+        for(int i=j+1; i<n; i++){
+
+            if(abs(eigen_val(i)) < min){
+                min = eigen_val(i);
+                k = i;
+            }
+        }
+        tmp = eigen(j);
+
+        eigen_val(j) = min;
+        eigen_val(k) = tmp;
+}
+
+    return eigen_val;
+};
 
 vec diagelement(mat A, int n){
     vec eigen(n);

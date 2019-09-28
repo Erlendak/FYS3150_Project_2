@@ -50,8 +50,7 @@ void task_2b(int n){
 
 
     mat x = rotate(B,n);
-    cout << B << endl;
-
+    cout << x << endl;
     string filename = "2b.dat";
     string fileout = filename;
     ofile.open(fileout);
@@ -103,7 +102,7 @@ void task_2d(int n){
            B(j,j-1) = -1/(h*h);
    }
 
-    rotate(B,n);
+    mat x = rotate(B,n);
     //cout << sort_diag(B,n) << endl;
 
     string filename = "2d.dat";
@@ -111,7 +110,7 @@ void task_2d(int n){
     ofile.open(fileout);
     ofile << setiosflags(ios::showpoint | ios::uppercase);
       //      ofile << "       x:             approx:          exact:       relative error" << endl;
-         ofile << setw(15) << setprecision(8) << diagelement(B,n);
+         ofile << setw(15) << setprecision(8) << x;
 
       ofile.close();
 }

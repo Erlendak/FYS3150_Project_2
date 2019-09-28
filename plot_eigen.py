@@ -3,28 +3,29 @@ import numpy as np
 
 eigen_val = []
 
-x = np.linspace(0,10,200)
+x = np.linspace(0,1,200)
 import sys
 
+"""
 with open("2b.dat", 'r') as infile:
     print("Reading from "+"2b.dat")
     for i in infile:
         data = i.split()
-        e_val= data[0].split("[]")[0]
+        e_val= data[4].split("[]")[0]
         print(e_val)
         eigen_val.append(float(e_val))
         #num_val.append(float(n_val))
         #x_val.append(float(x_v))
-        
-"""with open("2d.dat", 'r') as infile:
+   """     
+with open("2d.dat", 'r') as infile:
     print("Reading from "+"2d.dat")
     for i in infile:
         data = i.split()
-        e_val= data[0].split("[]")[0]
+        e_val= data[2].split("[]")[0]
         eigen_val.append(float(e_val))
         #num_val.append(float(n_val))
         #x_val.append(float(x_v))
-        
+"""        
 with open("2e.dat", 'r') as infile:
     print("Reading from "+"2e.dat")
     for i in infile:
@@ -33,7 +34,7 @@ with open("2e.dat", 'r') as infile:
         eigen_val.append(float(e_val))
         #num_val.append(float(n_val))
         #x_val.append(float(x_v))
-
+"""
 
 
 plt.plot(x,eigen_val,label="Sorted eigen values")
@@ -43,4 +44,4 @@ plt.ylabel("Utslag ; ")
 plt.xlabel("Posisjon ; ")
 plt.grid()
 plt.show()
-"""
+

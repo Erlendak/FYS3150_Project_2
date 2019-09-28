@@ -4,13 +4,13 @@
 
 
 int main(){
-    int n = 3;
+    int n = 200;
 
 
 
 //test_rotate();
 
-    task_2b(n);
+    task_2d(n);
     //task_2e(0.01,n);
     //task_2d(n);
 
