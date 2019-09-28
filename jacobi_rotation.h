@@ -38,7 +38,7 @@ double maxoffdiag(mat A,int *k,int *l,int n){
 };
 
 
-void rotate(mat & A, int n){
+mat rotate(mat &A, int n){
     /*rotate:
      * Rotates the matrix so that the non-diagonal elements are forced to become zero.
      * After enough iterations vi should be left with a diagonal matrix with the
@@ -128,7 +128,7 @@ void rotate(mat & A, int n){
     cout <<"Number of iterations:" <<iteration << endl;
     finish = clock();
     cout << "Algorithm time:" <<((((double)finish - (double)start)/CLOCKS_PER_SEC)) << endl;
-    //cout << R << endl;
+    return R;
 }
 
 

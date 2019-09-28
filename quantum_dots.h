@@ -48,20 +48,21 @@ void task_2b(int n){
 
        };
 
-    //cout << B << endl;
-    rotate(B,n);
+
+    mat x = rotate(B,n);
+    cout << B << endl;
 
     string filename = "2b.dat";
     string fileout = filename;
     ofile.open(fileout);
     ofile << setiosflags(ios::showpoint | ios::uppercase);
       //      ofile << "       x:             approx:          exact:       relative error" << endl;
-         ofile << setw(15) << setprecision(8) << diagelement(B,n);
+         ofile << setw(15) << setprecision(8) << x;
 
       ofile.close();
 }
 
-vec task_2d(int n){
+void task_2d(int n){
     /*Code to solve task 2d.
     We do almost the same as in 2d, the point is to try to approximate rho_n = infinity.
     We also add rho^2 to our diagonal elements.

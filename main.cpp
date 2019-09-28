@@ -3,16 +3,16 @@
 #include "quantum_dots.h"
 
 
-int main(int argc, char *argv[]){
-    int n = 200;
+int main(){
+    int n = 3;
 
 
 
 //test_rotate();
 
     task_2b(n);
-    task_2e(0.01,n);
-    task_2d(n);
+    //task_2e(0.01,n);
+    //task_2d(n);
 
 //task_2e(0.5);
 //task_2e(5);
