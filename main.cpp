@@ -4,15 +4,15 @@
 
 
 int main(){
-    int n =200;
-    int w = 0.01;
-
-    tests();
-
-    task_2e(w,n);
-    //task_2d(n);
-
-    //task_2e(0.5);
-    //task_2e(5);
-    return 0;
+//tests();
+int n =200;
+//task_2b(n);
+//task_2e(w,n);
+//task_2b(n);
+//task_2b(5);
+//task_2e(0.01,n);
+//task_2e(1,n);
+//task_2e(0.5,n);
+task_2e(0.25,n);
+return 0;
 }

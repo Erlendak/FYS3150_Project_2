@@ -3,6 +3,8 @@
 #include "jacobi_rotation.h"
 #include <iomanip>
 
+
+
 void task_2b(int n){
     /*Code to solve task 2b.
     We define a tridiagonal matrix and let our rotate
@@ -54,8 +56,10 @@ void task_2b(int n){
               ofile << setw(15) << setprecision(8) <<  analytisk;
              }
 
-    ofile << setw(15) << setprecision(8) <<  sort_diag(B,n);
-    ofile.close();
+
+         ofile << setw(15) << setprecision(8) <<  sort_diag(B,n);
+
+      ofile.close();
 }
 
 void task_2d(int n){
@@ -81,7 +85,7 @@ void task_2d(int n){
     // We know the eigenvalues are 3,7,11,15,...
     for(int i = 0; i<n; i++){
         analytisk = 3 + i*4;
-        cout << analytisk << endl;
+        //cout << analytisk << endl;
     }
 
     for(int i= 0; i<n; i++){
@@ -101,7 +105,6 @@ void task_2d(int n){
 
     mat x = rotate(B,n);
     sort_eigenvec(B,x,n);
-    cout << sort_diag(B,n) << endl;
 
     string filename = "2d.dat";
     string fileout = filename;
@@ -148,8 +151,9 @@ void task_2e(double omega, int n){
        }
 
     mat x = rotate(B,n);
-    sort_eigenvec(B,x,n);
-    string filename = "2e.dat";
+    cout << sort_eigenvec(B,x,n)<<endl;
+    string omega_string = to_string(omega);
+    string filename = "Result_omega"+omega_string+".dat";
     string fileout = filename;
     ofile.open(fileout);
     ofile << setiosflags(ios::showpoint | ios::uppercase);

@@ -32,7 +32,7 @@ void test_solution(){
         catch (const char* msg){
             cerr << msg <<endl;
         }
-}
+};
 
 void test_rotate(){
     /*test_solution:
@@ -63,7 +63,8 @@ void test_rotate(){
         catch (const char* msg){
             cerr << msg <<endl;
         }
-}
+};
+
 
 void test_maxoffdiag(){
     /*test_maxoffdiag:
@@ -76,6 +77,7 @@ void test_maxoffdiag(){
                 A(i,j) = 1;
         }
     }
+
     A(1,3) = 3;
     A(4,4) = 5;
     A(3,1) = 3;
