@@ -19,7 +19,7 @@ void task_2b(int n){
     //This gives us the analytical eigenvalues in 2b.
     for(int j = 1; j<n+1;j++){
               analytisk = (2/(h*h))+ 2*(-1/(h*h))*(cos((j*M_PI)/(n+1)));
-              //cout << analytisk << endl;
+              cout << analytisk << endl;
              }
 
     vec rho(n);
@@ -56,8 +56,7 @@ void task_2b(int n){
     ofile.open(fileout);
     ofile << setiosflags(ios::showpoint | ios::uppercase);
       //      ofile << "       x:             approx:          exact:       relative error" << endl;
-         ofile << setw(15) << setprecision(8) << x;
-
+         ofile << setw(15) << setprecision(8) << sort_diag(B,n);
       ofile.close();
 }
 

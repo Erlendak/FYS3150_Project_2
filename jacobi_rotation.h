@@ -19,7 +19,6 @@ double maxoffdiag(mat A,int *k,int *l,int n){
      * Function to find the absolute max non-diagonal element
         of the matrix.*/
 
-
        double max;
        for(int i = 0; i<n; i++){
            for(int j= i+1; j<n; j++){
@@ -30,7 +29,6 @@ double maxoffdiag(mat A,int *k,int *l,int n){
                double b = fabs(A(j,i));
                if(b>max){
                    max = b; *l=j; *k = i;
-
                }
            }
        }
@@ -62,7 +60,6 @@ mat rotate(mat &A, int n){
           }
       }
     }
-
 
     start = clock();
     //We keep iterating until all non-diag elements are either
