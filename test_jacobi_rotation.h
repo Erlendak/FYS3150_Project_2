@@ -76,7 +76,6 @@ void test_maxoffdiag(){
                 A(i,j) = 1;
         }
     }
-
     A(1,3) = 3;
     A(4,4) = 5;
     A(3,1) = 3;

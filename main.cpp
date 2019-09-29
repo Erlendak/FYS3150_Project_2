@@ -4,15 +4,14 @@
 
 
 int main(){
-    int n =5;
+    int n =200;
     int w = 5;
 
-
-    //test_rotate();
+    tests();
 
     //task_2e(w,n);
     //task_2e(0.01,n);
-    task_2b(n);
+    task_2d(n);
 
     //task_2e(0.5);
     //task_2e(5);

@@ -12,8 +12,6 @@
 using namespace arma;
 using namespace std;
 
-
-
 double maxoffdiag(mat A,int *k,int *l,int n){
     /*maxoffdiag:
      * Function to find the absolute max non-diagonal element
@@ -33,8 +31,7 @@ double maxoffdiag(mat A,int *k,int *l,int n){
            }
        }
        return max;
-};
-
+}
 
 mat rotate(mat &A, int n){
     /*rotate:
@@ -127,10 +124,10 @@ mat rotate(mat &A, int n){
     return R;
 }
 
-
 vec sort_diag(mat A, int n){
-    /*sort:
-     * Takes the diagonal elements of the rotated matrix and prints them out.
+    /*sort_diag:
+     * Takes the diagonal elements of the rotated matrix and sorts them
+     * then prints them out.
      * This is so we can just look at the important elements instead of
      * having a matrix full of zeroes and only diagonal elements.*/
 
@@ -156,23 +153,25 @@ vec sort_diag(mat A, int n){
 }
 
     return eigen;
-};
-
+}
 
 vec diagelement(mat A, int n){
+    /*diagelement:
+     Print out the diagonal elements without sorting them,
+     * This is so we can just look at the important elements instead of
+     * having a matrix full of zeroes and only diagonal elements.*/
     vec eigen(n);
     for(int i=0; i<n; i++){
           eigen(i) = A(i,i);
         }
     return eigen;
-};
+}
 
 
 vec sort_eigenvec(mat A, mat & R, int n){
-    /*sort:
-     * Takes the diagonal elements of the rotated matrix and prints them out.
-     * This is so we can just look at the important elements instead of
-     * having a matrix full of zeroes and only diagonal elements.*/
+    /*sort_eigenvec:
+     * Sorts the eigenvectors so that they match when we sort the
+       eigenvalues.*/
 
     vec eigen_val(n);
     mat tmp_vec(n,1);
@@ -202,8 +201,7 @@ vec sort_eigenvec(mat A, mat & R, int n){
         eigen_val(j) = min;
         eigen_val(k) = tmp;
 }
-
     return eigen_val;
-};
+}
 
 #endif // JACOBI_ROTATION_H
