@@ -14,13 +14,7 @@ void task_2b(int n){
     double rho_0 = 0;
     double rho_n = 1;
     double h  = (rho_n - rho_0)/(n);
-    double analytisk;
-
-    //This gives us the analytical eigenvalues in 2b.
-    for(int j = 1; j<n+1;j++){
-              analytisk = (2/(h*h))+ 2*(-1/(h*h))*(cos((j*M_PI)/(n+1)));
-              cout << analytisk << endl;
-             }
+    vec analytisk(n);
 
     vec rho(n);
     for (int i = 1; i < n-1; ++i) {
@@ -48,15 +42,23 @@ void task_2b(int n){
 
        }
 
-
     mat x = rotate(B,n);
     sort_eigenvec(B,x,n);
     string filename = "2b.dat";
     string fileout = filename;
+
     ofile.open(fileout);
     ofile << setiosflags(ios::showpoint | ios::uppercase);
-      //      ofile << "       x:             approx:          exact:       relative error" << endl;
-         ofile << setw(15) << setprecision(8) << sort_diag(B,n);
+
+    //This gives us the analytical eigenvalues in 2b.
+    for(int j = 1; j<n+1;j++){
+              analytisk = (2/(h*h))+ 2*(-1/(h*h))*(cos((j*M_PI)/(n+1)));
+              ofile << setw(15) << setprecision(8) <<  analytisk;
+             }
+
+
+         ofile << setw(15) << setprecision(8) <<  sort_diag(B,n);
+
       ofile.close();
 }
 
@@ -102,15 +104,14 @@ void task_2d(int n){
    }
 
     mat x = rotate(B,n);
-    //cout << sort_diag(B,n) << endl;
     sort_eigenvec(B,x,n);
+
     string filename = "2d.dat";
     string fileout = filename;
     ofile.open(fileout);
     ofile << setiosflags(ios::showpoint | ios::uppercase);
       //      ofile << "       x:             approx:          exact:       relative error" << endl;
          ofile << setw(15) << setprecision(8) << x;
-
       ofile.close();
 }
 
@@ -150,7 +151,6 @@ void task_2e(double omega, int n){
        }
 
     mat x = rotate(B,n);
-    //cout << sort_diag(B,n) << endl;
     sort_eigenvec(B,x,n);
     string filename = "2e.dat";
     string fileout = filename;

@@ -32,7 +32,7 @@ void test_solution(){
         catch (const char* msg){
             cerr << msg <<endl;
         }
-};
+}
 
 void test_rotate(){
     /*test_solution:
@@ -63,8 +63,7 @@ void test_rotate(){
         catch (const char* msg){
             cerr << msg <<endl;
         }
-};
-
+}
 
 void test_maxoffdiag(){
     /*test_maxoffdiag:

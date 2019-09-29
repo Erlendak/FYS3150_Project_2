@@ -15,6 +15,7 @@ with open("2b.dat", 'r') as infile:
     for i in infile:
         data = i.split()
         e_val1= data[0].split()[0]
+
         """e_val2= data[1].split("[]")[0]
         e_val3= data[2].split("[]")[0]
         e_val4= data[3].split("[]")[0]
@@ -26,6 +27,7 @@ with open("2b.dat", 'r') as infile:
         #num_val.append(float(n_val))
         #x_val.append(float(x_v))
 
+ print(e_val1)
 """   
 with open("2d.dat", 'r') as infile:
     print("Reading from "+"2d.dat")
