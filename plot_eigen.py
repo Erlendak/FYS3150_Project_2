@@ -36,10 +36,10 @@ with open("2d.dat", 'r') as infile:
         e_val2= data[1].split("[]")[0]
         e_val3= data[2].split("[]")[0]
         e_val4= data[3].split("[]")[0]
-        eigen_val1.append(float(e_val1)**2)
-        eigen_val2.append(float(e_val2)**2)
-        eigen_val3.append(float(e_val3)**2)
-        eigen_val4.append(float(e_val4)**2)
+        eigen_val1.append(float(e_val1))
+        eigen_val2.append(float(e_val2))
+        eigen_val3.append(float(e_val3))
+        eigen_val4.append(float(e_val4))
 
 
 """      
