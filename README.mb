@@ -1,1 +1,17 @@
-Initializ
+I dette projektet har vi tatt for oss 3 oppgaver, vi ser på en oscillerende
+bjelke, posisjonen til et elektron og posisjonen til to elektroner. Problemene
+kan løses på relativt lik måte, vi løser de ved å sette opp skalerte
+diffrensialligninger på matrise form. Dette gir oss så et egenverdiproblem.
+Egenvektorene gir oss den generelle løsningen, så kan vi bruke egenverdien til å
+bestemme de spesifikke egenskapene til systemet.
+
+For å løse egenverdiene til matrisene har vi utviklet en kode som tar i bruk
+Jacobi rotasjon for å tilnærme seg egenverdiene til matisen. Videre sammenlikner
+vi de numeriske og analytiske løsningene, og effektiviteten til algoritmen
+sammenlignet med algoritmen til Armadillo.
+
+Sist men ikke minst har vi laget et GitHub repository som inneholder kildekoden
+som vi har utviklet i dette projektet, i tillegg til et par håndplukkede
+resultater som skal brukte til å forsøke å vise at koden virker som den skal.
+GitHub repositoryet skal også vise en ganske detaljert logg av utviklingen av
+koden.
