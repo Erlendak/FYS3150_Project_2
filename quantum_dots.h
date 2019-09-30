@@ -3,12 +3,14 @@
 #include "jacobi_rotation.h"
 #include <iomanip>
 
+
+
 void task_2b(int n){
     /*Code to solve task 2b.
     We define a tridiagonal matrix and let our rotate
     function solve it.*/
 
-    ofstream ofile;
+
     double rho_0 = 0;
     double rho_n = 1;
     double h  = (rho_n - rho_0)/(n);
@@ -37,25 +39,38 @@ void task_2b(int n){
     for(int j = 1; j<n;j++){
                B(j-1,j) = -1/ (h*h);
                B(j,j-1) = -1/(h*h);
-
        }
+    clock_t start1, finish1;
+    start1 = clock();
+    mat armadillos_eig = eig_sym(B);
+    finish1 = clock();
+    cout << "Armadillos time:" <<((((double)finish1 - (double)start1)/CLOCKS_PER_SEC)) << endl;
+    //cout <<armadillos_eig <<endl;
 
     mat x = rotate(B,n);
     sort_eigenvec(B,x,n);
-    string filename = "2b.dat";
-    string fileout = filename;
 
-    ofile.open(fileout);
-    ofile << setiosflags(ios::showpoint | ios::uppercase);
-
+    clock_t start, finish;
+    start = clock();
     //This gives us the analytical eigenvalues in 2b.
     for(int j = 1; j<n+1;j++){
               analytisk = (2/(h*h))+ 2*(-1/(h*h))*(cos((j*M_PI)/(n+1)));
-              ofile << setw(15) << setprecision(8) <<  analytisk;
-             }
+    }
+    finish = clock();
+    cout << "Analytical time:" <<((((double)finish - (double)start)/CLOCKS_PER_SEC)) << endl;
 
-    ofile << setw(15) << setprecision(8) <<  sort_diag(B,n);
-    ofile.close();
+
+
+    ofstream ofile;
+    string filename = "2b.dat";
+    string fileout = filename;
+    ofile.open(fileout);
+    ofile << setiosflags(ios::showpoint | ios::uppercase);
+
+         ofile << setw(15) << setprecision(8) <<  analytisk;
+         ofile << setw(15) << setprecision(8) <<  sort_diag(B,n);
+
+      ofile.close();
 }
 
 void task_2d(int n){
@@ -79,10 +94,15 @@ void task_2d(int n){
 
     //Analytical eigenvalues for task 2d.
     // We know the eigenvalues are 3,7,11,15,...
+    clock_t start, finish;
+    start = clock();
     for(int i = 0; i<n; i++){
         analytisk = 3 + i*4;
-        cout << analytisk << endl;
+        //cout << analytisk << endl;
     }
+    finish = clock();
+    cout << "Analytical time:" <<((((double)finish - (double)start)/CLOCKS_PER_SEC)) << endl;
+
 
     for(int i= 0; i<n; i++){
         for(int j=0; j<n; j++){
@@ -101,7 +121,6 @@ void task_2d(int n){
 
     mat x = rotate(B,n);
     sort_eigenvec(B,x,n);
-    cout << sort_diag(B,n) << endl;
 
     string filename = "2d.dat";
     string fileout = filename;
@@ -148,8 +167,9 @@ void task_2e(double omega, int n){
        }
 
     mat x = rotate(B,n);
-    sort_eigenvec(B,x,n);
-    string filename = "2e.dat";
+    cout << sort_eigenvec(B,x,n)<<endl;
+    string omega_string = to_string(omega);
+    string filename = "Result_omega"+omega_string+".dat";
     string fileout = filename;
     ofile.open(fileout);
     ofile << setiosflags(ios::showpoint | ios::uppercase);
