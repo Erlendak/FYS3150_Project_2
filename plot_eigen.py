@@ -27,7 +27,7 @@ with open("2b.dat", 'r') as infile:
         #x_val.append(float(x_v))
 """
 
-
+"""
 with open("2d.dat", 'r') as infile:
     print("Reading from "+"2d.dat")
     for i in infile:
@@ -40,7 +40,7 @@ with open("2d.dat", 'r') as infile:
         eigen_val2.append(float(e_val2))
         eigen_val3.append(float(e_val3))
         eigen_val4.append(float(e_val4))
-
+"""
 
 """      
 with open("2e.dat", 'r') as infile:

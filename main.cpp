@@ -10,6 +10,10 @@ int main(){
     tests();
 
     task_2e(w,n);
+
+    task_2e(w,n);
+
+    task_2e(w,n);
     //task_2d(n);
 
     //task_2e(0.5);
